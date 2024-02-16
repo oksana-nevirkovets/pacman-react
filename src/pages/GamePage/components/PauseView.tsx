@@ -7,7 +7,12 @@ export const PauseView = () => {
   const handleClick = () => {
     game.gamePaused = !game.gamePaused;
   };
-  return <ButtonStyled onClick={handleClick}>Pause</ButtonStyled>;
+
+  return (
+    <ButtonStyled id="pacman-pause" onClick={handleClick}>
+      Pause
+    </ButtonStyled>
+  );
 };
 
 const ButtonStyled = styled.button`

@@ -1,6 +1,6 @@
 import { Row } from 'antd';
 import { observer } from 'mobx-react-lite';
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components/macro';
 import { Board } from '../../components/Board';
 import { ExtraLives } from './components/ExtraLives';
@@ -16,9 +16,12 @@ import { VSpace } from '../../components/Spacer';
 import { useGameLoop } from '../../model/useGameLoop';
 import { RestartView } from './components/RestartView';
 import { PauseView } from './components/PauseView';
+import { useScaleElement } from '../../model/useScaleElement';
 
 export const GamePage: React.FC = observer(() => {
   const store = useStore();
+  const contentRef = useRef<HTMLDivElement>(null);
+  const scale = useScaleElement({ contentRef });
   useEffect(() => {
     store.resetGame();
     return () => {
@@ -31,7 +34,14 @@ export const GamePage: React.FC = observer(() => {
   useKeyboardActions();
 
   return (
-    <Layout data-testid="GamePage">
+    <Layout
+      data-testid="GamePage"
+      ref={contentRef}
+      style={{
+        transform: `scale(${scale})`,
+        transformOrigin: 'top center',
+      }}
+    >
       <div>
         <ScoreArea>
           <RestartView />
@@ -60,7 +70,7 @@ export const GamePage: React.FC = observer(() => {
 });
 
 const Layout = styled.div`
-  margin: 16px;
+  padding: 16px;
 
   display: grid;
   grid-template-columns: 1fr;
