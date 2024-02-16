@@ -14,6 +14,8 @@ import { useStore } from '../../components/StoreContext';
 import { useKeyboardActions } from './components/useKeyboardActions';
 import { VSpace } from '../../components/Spacer';
 import { useGameLoop } from '../../model/useGameLoop';
+import { RestartView } from './components/RestartView';
+import { PauseView } from './components/PauseView';
 
 export const GamePage: React.FC = observer(() => {
   const store = useStore();
@@ -30,25 +32,29 @@ export const GamePage: React.FC = observer(() => {
 
   return (
     <Layout data-testid="GamePage">
-      <ScoreArea>
-        <Row justify="center">
-          <Score />
-        </Row>
+      <div>
+        <ScoreArea>
+          <RestartView />
+          <Row justify="center">
+            <Score />
+          </Row>
+          <PauseView />
+        </ScoreArea>
         <VSpace size="small" />
-      </ScoreArea>
-      <BoardArea>
-        <Board>
-          <MazeView />
-          <PillsView />
-          <PacManView />
-          <GhostsGameView />
-          <GameOver />
-        </Board>
-        <VSpace size="large" />
-        <Row justify="center">
-          <ExtraLives />
-        </Row>
-      </BoardArea>
+        <BoardArea>
+          <Board>
+            <MazeView />
+            <PillsView />
+            <PacManView />
+            <GhostsGameView />
+            <GameOver />
+          </Board>
+          <VSpace size="large" />
+          <Row justify="center">
+            <ExtraLives />
+          </Row>
+        </BoardArea>
+      </div>
     </Layout>
   );
 });
@@ -61,6 +67,11 @@ const Layout = styled.div`
   justify-items: center;
 `;
 
-const ScoreArea = styled.div``;
+const ScoreArea = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
 
-const BoardArea = styled.div``;
+const BoardArea = styled.div`
+  position: relative;
+`;
