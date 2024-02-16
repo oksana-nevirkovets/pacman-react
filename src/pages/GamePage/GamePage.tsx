@@ -36,9 +36,6 @@ export const GamePage: React.FC = observer(() => {
         </Row>
         <VSpace size="small" />
       </ScoreArea>
-
-      <EmptyArea />
-
       <BoardArea>
         <Board>
           <MazeView />
@@ -57,23 +54,13 @@ export const GamePage: React.FC = observer(() => {
 });
 
 const Layout = styled.div`
-  margin-left: 16px;
-  margin-right: 16px;
+  margin: 16px;
 
   display: grid;
-
-  @media (min-width: 1280px) {
-    grid-template-columns: 1fr 1fr;
-    justify-items: center;
-  }
-  @media (max-width: 1280px) {
-    grid-template-columns: 1fr;
-    justify-items: center;
-  }
+  grid-template-columns: 1fr;
+  justify-items: center;
 `;
 
 const ScoreArea = styled.div``;
-
-const EmptyArea = styled.div``;
 
 const BoardArea = styled.div``;
