@@ -3,7 +3,6 @@ import { observer } from 'mobx-react-lite';
 import React, { useEffect } from 'react';
 import styled from 'styled-components/macro';
 import { Board } from '../../components/Board';
-import { DebugView } from './components/DebugView';
 import { ExtraLives } from './components/ExtraLives';
 import { GameOver } from './components/GameOver';
 import { GhostsGameView } from './components/GhostsView';
@@ -53,10 +52,6 @@ export const GamePage: React.FC = observer(() => {
           <ExtraLives />
         </Row>
       </BoardArea>
-
-      <DebugArea>
-        <DebugView />
-      </DebugArea>
     </Layout>
   );
 });
@@ -82,9 +77,3 @@ const ScoreArea = styled.div``;
 const EmptyArea = styled.div``;
 
 const BoardArea = styled.div``;
-
-const DebugArea = styled.div`
-  @media (max-width: 1280px) {
-    display: none;
-  }
-`;
