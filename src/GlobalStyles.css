@@ -13,8 +13,8 @@ body {
 }
 
 @font-face {
-  font-family: 'Joystix';
-  src: url('./resources/Joystix.ttf');
+  font-family: 'BoldPixel';
+  src: url('./resources/half_bold_pixel-7.ttf');
 }
 
 .App {

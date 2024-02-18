@@ -8,7 +8,7 @@ export const RestartView = () => {
 
 const ButtonStyled = styled.button`
   min-width: 95px;
-  font-family: Joystix;
+  font-family: BoldPixel;
   border: 3px solid #ffff00c7;
   border-radius: 4px;
   background: transparent;
@@ -16,6 +16,7 @@ const ButtonStyled = styled.button`
   font-size: 16px;
   height: auto;
   cursor: pointer;
+  padding-top: 5px;
   transition: all 0.2s ease-in-out;
   :hover {
     border-color: yellow;
