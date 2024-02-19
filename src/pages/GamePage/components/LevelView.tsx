@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import { useGame } from '../../../components/StoreContext';
 import { useOnClickOutside } from '../../../model/useOnClickOutside';
@@ -14,6 +14,10 @@ export const LevelView = () => {
   const ref = useRef(null);
   const game = useGame();
   useOnClickOutside(ref, () => setIsOpen(false));
+
+  useEffect(() => {
+    game.speed = Number(selectedOption.value);
+  }, []);
 
   const handleChange = (option: { value: string; label: string }) => {
     game.speed = Number(option.value);
