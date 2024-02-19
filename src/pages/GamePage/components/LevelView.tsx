@@ -1,6 +1,5 @@
 import { useRef, useState } from 'react';
 import styled from 'styled-components';
-import Select from 'react-select';
 import { useGame } from '../../../components/StoreContext';
 import { useOnClickOutside } from '../../../model/useOnClickOutside';
 
@@ -92,39 +91,5 @@ const StyledDropdownItem = styled.button`
   cursor: pointer;
   :hover {
     opacity: 1;
-  }
-`;
-
-const StyledSelect = styled(Select)`
-  opacity: 0.6;
-  transition: all 0.2s ease-in-out;
-  border: 3px solid white !important;
-  border-radius: 4px;
-  width: 100% !important;
-  :hover {
-    opacity: 1;
-  }
-  .ant-select-open {
-    opacity: 1;
-  }
-  .ant-select-selector {
-    height: 100% !important;
-    font-family: BoldPixel;
-    border: none !important;
-    background: black !important;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-    padding-top: 5px;
-    display: flex;
-    justify-items: center;
-    align-items: center;
-
-    .ant-select-selection-item {
-      padding: 0 !important;
-    }
-  }
-  .ant-select-arrow {
-    display: none;
   }
 `;
