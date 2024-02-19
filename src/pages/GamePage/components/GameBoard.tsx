@@ -13,6 +13,7 @@ import { PacManView } from './PacManView';
 import { GhostsGameView } from './GhostsView';
 import { GameOver } from './GameOver';
 import { ExtraLives } from './ExtraLives';
+import { LevelView } from './LevelView';
 
 export const GameBoard = () => {
   const contentRef = useRef<HTMLDivElement>(null);
@@ -42,9 +43,12 @@ export const GameBoard = () => {
           <GameOver />
         </Board>
         <VSpace size="large" />
-        <Row justify="center">
-          <ExtraLives />
-        </Row>
+        <SettingsArea>
+          <Row justify="center">
+            <ExtraLives />
+          </Row>
+          <LevelView />
+        </SettingsArea>
       </BoardArea>
     </Container>
   );
@@ -61,4 +65,9 @@ const BoardArea = styled.div`
 
 const Container = styled.div`
   padding: 16px;
+`;
+
+const SettingsArea = styled.div`
+  display: flex;
+  justify-content: space-between;
 `;
