@@ -1,11 +1,10 @@
-import { useGame } from '../../../components/StoreContext';
+import { useStore } from '../../../components/StoreContext';
 import styled from 'styled-components';
 
 export const PauseView = () => {
-  const game = useGame();
-
+  const store = useStore();
   const handleClick = () => {
-    game.gamePaused = !game.gamePaused;
+    store.game.gamePaused = !store.game.gamePaused;
   };
 
   return (
