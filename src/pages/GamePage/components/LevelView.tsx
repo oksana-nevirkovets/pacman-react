@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
-import { useGame } from '../../../components/StoreContext';
+import { useStore } from '../../../components/StoreContext';
 import { useOnClickOutside } from '../../../model/useOnClickOutside';
 
 const options = [
@@ -12,15 +12,15 @@ export const LevelView = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState(options[0]);
   const ref = useRef(null);
-  const game = useGame();
+  const store = useStore();
   useOnClickOutside(ref, () => setIsOpen(false));
 
   useEffect(() => {
-    game.speed = Number(selectedOption.value);
+    store.game.speed = Number(selectedOption.value);
   }, []);
 
   const handleChange = (option: { value: string; label: string }) => {
-    game.speed = Number(option.value);
+    store.game.speed = Number(option.value);
     setSelectedOption(option);
     setIsOpen(false);
   };
@@ -37,7 +37,10 @@ export const LevelView = () => {
       {isOpen && (
         <StyledDropdownContent>
           {options.map(item => (
-            <StyledDropdownItem onClick={() => handleChange(item)}>
+            <StyledDropdownItem
+              key={item.value}
+              onClick={() => handleChange(item)}
+            >
               {item.label}
             </StyledDropdownItem>
           ))}
