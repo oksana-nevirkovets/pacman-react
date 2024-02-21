@@ -1,0 +1,30 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Create gh-pages branch
+        run: |
+          git checkout -b gh-pages
+          git push origin gh-pages
+
+      - name: Install dependencies and deploy
+        run: |
+          yarn install
+          yarn deploy
+
+      - name: Delete gh-pages branch
+        run: |
+          git checkout master
+          git branch -D gh-pages
+          git push origin --delete gh-pages
