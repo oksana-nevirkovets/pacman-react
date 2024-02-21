@@ -42,6 +42,11 @@ export class Game {
 
   pacMan: PacMan;
 
+  gameStarted = false;
+
+  @observable
+  isMuted = Boolean(localStorage.getItem('packman-muted'));
+
   @observable
   score = 0;
 
@@ -78,5 +83,9 @@ export class Game {
 
   readyGameForPlay() {
     resetPacMan(this.pacMan);
+  }
+
+  muteGame() {
+    this.isMuted = !this.isMuted;
   }
 }

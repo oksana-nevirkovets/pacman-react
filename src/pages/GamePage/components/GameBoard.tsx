@@ -14,6 +14,7 @@ import { GhostsGameView } from './GhostsView';
 import { GameOver } from './GameOver';
 import { ExtraLives } from './ExtraLives';
 import { LevelView } from './LevelView';
+import { SoundView } from './SoundView';
 
 export const GameBoard = () => {
   const contentRef = useRef<HTMLDivElement>(null);
@@ -33,7 +34,7 @@ export const GameBoard = () => {
         </Row>
         <PauseView />
       </ScoreArea>
-      <VSpace size="small" />
+      <VSpace size="medium" />
       <BoardArea>
         <Board>
           <MazeView />
@@ -42,8 +43,9 @@ export const GameBoard = () => {
           <GhostsGameView />
           <GameOver />
         </Board>
-        <VSpace size="large" />
+        <VSpace size="medium" />
         <SettingsArea>
+          <SoundView />
           <Row justify="center">
             <ExtraLives />
           </Row>

@@ -5,6 +5,7 @@ import { useStore } from '../../components/StoreContext';
 import { useGameLoop } from '../../model/useGameLoop';
 import { GameBoard } from './components/GameBoard';
 import { useKeyboardActions } from './components/useKeyboardActions';
+import { StartSound } from './components/StartSound';
 
 export const GamePage: React.FC = observer(() => {
   const [isStarted, setIsStarted] = useState(false);
@@ -15,11 +16,16 @@ export const GamePage: React.FC = observer(() => {
   const handleStart = () => {
     store.resetGame();
     setIsStarted(true);
+    store.game.gameStarted = true;
   };
+
   return (
     <Layout data-testid="GamePage">
       {isStarted ? (
-        <GameBoard />
+        <>
+          <StartSound />
+          <GameBoard />
+        </>
       ) : (
         <Container>
           <StartButton onClick={handleStart}>Start</StartButton>

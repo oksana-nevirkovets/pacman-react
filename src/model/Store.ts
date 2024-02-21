@@ -13,4 +13,8 @@ export class Store {
     this.game = new Game(this);
     this.game.readyGameForPlay();
   }
+  @action.bound
+  muteSounds() {
+    this.game.muteGame();
+  }
 }

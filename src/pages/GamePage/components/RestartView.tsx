@@ -3,7 +3,12 @@ import { useStore } from '../../../components/StoreContext';
 
 export const RestartView = () => {
   const store = useStore();
-  return <ButtonStyled onClick={store.resetGame}>Restart</ButtonStyled>;
+
+  const handleClick = () => {
+    store.resetGame();
+    store.game.gameStarted = true;
+  };
+  return <ButtonStyled onClick={handleClick}>Restart</ButtonStyled>;
 };
 
 const ButtonStyled = styled.button`
