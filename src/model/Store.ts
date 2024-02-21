@@ -12,6 +12,7 @@ export class Store {
   resetGame() {
     this.game = new Game(this);
     this.game.readyGameForPlay();
+    this.game.gameStarted = true;
   }
   @action.bound
   muteSounds() {

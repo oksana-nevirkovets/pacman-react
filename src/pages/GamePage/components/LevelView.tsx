@@ -20,6 +20,7 @@ export const LevelView = () => {
   }, []);
 
   const handleChange = (option: { value: string; label: string }) => {
+    store.resetGame();
     store.game.speed = Number(option.value);
     setSelectedOption(option);
     setIsOpen(false);
