@@ -45,7 +45,7 @@ export class Game {
   gameStarted = false;
 
   @observable
-  isMuted = Boolean(localStorage.getItem('packman-muted'));
+  isMuted = Boolean(localStorage.getItem('pacman-muted'));
 
   @observable
   score = 0;

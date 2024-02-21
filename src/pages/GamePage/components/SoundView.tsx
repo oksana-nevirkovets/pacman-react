@@ -1,12 +1,15 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 import { useStore } from '../../../components/StoreContext';
+import { SoundOff } from '../../../components/SoundOff';
+import { SoundOn } from '../../../components/SoundOn';
 
 export const SoundView = () => {
   const [isMuted, setIsMuted] = useState(
     Boolean(localStorage.getItem('pacman-muted'))
   );
   const store = useStore();
+
   const handleClick = () => {
     store.muteSounds();
     const muted = localStorage.getItem('pacman-muted');
@@ -21,18 +24,15 @@ export const SoundView = () => {
   };
   return (
     <StyledButton onClick={handleClick}>
-      {isMuted ? 'Muted' : 'Sounds'}
+      {isMuted ? <SoundOff width={20} /> : <SoundOn width={20} />}
     </StyledButton>
   );
 };
 
 const StyledButton = styled.button`
-  font-family: BoldPixel;
   background: black;
   color: white;
-  font-size: 16px;
   cursor: pointer;
-  padding-top: 5px;
   border-radius: 4px;
   display: flex;
   min-width: 95px;
@@ -41,6 +41,7 @@ const StyledButton = styled.button`
   opacity: 0.6;
   transition: all 0.2s ease-in-out;
   border: 3px solid white;
+  padding: 3px;
   cursor: pointer;
   :hover {
     opacity: 1;

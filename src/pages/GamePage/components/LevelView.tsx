@@ -1,27 +1,25 @@
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import styled from 'styled-components';
 import { useStore } from '../../../components/StoreContext';
 import { useOnClickOutside } from '../../../model/useOnClickOutside';
+import { observer } from 'mobx-react-lite';
 
 const options = [
-  { value: '1', label: 'Level: 1' },
-  { value: '2', label: 'Level: 2' },
+  { value: '0.5', label: 'Easy' },
+  { value: '1', label: 'Medium' },
+  { value: '2', label: 'Heavy' },
 ];
 
-export const LevelView = () => {
+export const LevelView = observer(() => {
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedOption, setSelectedOption] = useState(options[0]);
+  const [selectedOption, setSelectedOption] = useState(options[1]);
   const ref = useRef(null);
   const store = useStore();
   useOnClickOutside(ref, () => setIsOpen(false));
 
-  useEffect(() => {
-    store.game.speed = Number(selectedOption.value);
-  }, []);
-
   const handleChange = (option: { value: string; label: string }) => {
+    store.level = Number(option.value);
     store.resetGame();
-    store.game.speed = Number(option.value);
     setSelectedOption(option);
     setIsOpen(false);
   };
@@ -49,7 +47,7 @@ export const LevelView = () => {
       )}
     </StyledDropdown>
   );
-};
+});
 
 const StyledDropdown = styled.div`
   position: relative;
@@ -75,8 +73,8 @@ const StyledDropdownControl = styled.button<{ isOpen: boolean }>`
   border-radius: 4px;
   display: flex;
   min-width: 95px;
-  justify-items: center;
-  align-items: center;
+  justify-content: center;
+  align-content: center;
   opacity: ${({ isOpen }) => (isOpen ? '1' : '0.6')};
   transition: all 0.2s ease-in-out;
   border: 3px solid white;

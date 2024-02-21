@@ -43,7 +43,8 @@ const updateLivingPacMan = (pacMan: PacMan) => {
 };
 
 const movePacMan = (pacMan: PacMan): void => {
-  const speed = pacMan.game.speed;
+  const gameSpeed = pacMan.game.speed;
+  const speed = gameSpeed === 0.5 ? 1 : gameSpeed;
   const delta: ScreenCoordinates = directionAsVector(pacMan.direction, speed);
   movePacManBy(pacMan, delta);
 };
