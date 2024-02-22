@@ -1,0 +1,30 @@
+{
+  "files": {
+    "main.css": "/pacman-react/static/css/main.86066b43.chunk.css",
+    "main.js": "/pacman-react/static/js/main.4c181729.chunk.js",
+    "main.js.map": "/pacman-react/static/js/main.4c181729.chunk.js.map",
+    "runtime-main.js": "/pacman-react/static/js/runtime-main.0115c81d.js",
+    "runtime-main.js.map": "/pacman-react/static/js/runtime-main.0115c81d.js.map",
+    "static/css/2.e01775a1.chunk.css": "/pacman-react/static/css/2.e01775a1.chunk.css",
+    "static/js/2.77f319c9.chunk.js": "/pacman-react/static/js/2.77f319c9.chunk.js",
+    "static/js/2.77f319c9.chunk.js.map": "/pacman-react/static/js/2.77f319c9.chunk.js.map",
+    "index.html": "/pacman-react/index.html",
+    "static/css/2.e01775a1.chunk.css.map": "/pacman-react/static/css/2.e01775a1.chunk.css.map",
+    "static/css/main.86066b43.chunk.css.map": "/pacman-react/static/css/main.86066b43.chunk.css.map",
+    "static/js/2.77f319c9.chunk.js.LICENSE.txt": "/pacman-react/static/js/2.77f319c9.chunk.js.LICENSE.txt",
+    "static/media/Sprite.css": "/pacman-react/static/media/arcade_pacman_sprites.67d0f0bb.png",
+    "static/media/die.603710c3.mp3": "/pacman-react/static/media/die.603710c3.mp3",
+    "static/media/eat-fruit.83feae2d.mp3": "/pacman-react/static/media/eat-fruit.83feae2d.mp3",
+    "static/media/ghost_dead.a3650929.mp3": "/pacman-react/static/media/ghost_dead.a3650929.mp3",
+    "static/media/GlobalStyles.css": "/pacman-react/static/media/half_bold_pixel-7.1fe88140.ttf",
+    "static/media/pacman_eat.dfc13d55.wav": "/pacman-react/static/media/pacman_eat.dfc13d55.wav",
+    "static/media/ready.ad544456.mp3": "/pacman-react/static/media/ready.ad544456.mp3"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.0115c81d.js",
+    "static/css/2.e01775a1.chunk.css",
+    "static/js/2.77f319c9.chunk.js",
+    "static/css/main.86066b43.chunk.css",
+    "static/js/main.4c181729.chunk.js"
+  ]
+}

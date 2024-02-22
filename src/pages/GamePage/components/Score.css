@@ -1,9 +1,0 @@
-.Score {
-  display: inline-flex;
-  min-width: 170px;
-  justify-content: space-between;
-  font-family: BoldPixel;
-  font-size: 18px;
-  align-items: center;
-  padding-top: 5px;
-}
