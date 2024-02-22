@@ -44,9 +44,22 @@ const updateLivingPacMan = (pacMan: PacMan) => {
 
 const movePacMan = (pacMan: PacMan): void => {
   const gameSpeed = pacMan.game.speed;
-  const speed = gameSpeed === 0.5 ? 1 : gameSpeed;
+  const speed = getPacManSpeed(gameSpeed);
   const delta: ScreenCoordinates = directionAsVector(pacMan.direction, speed);
   movePacManBy(pacMan, delta);
+};
+
+const getPacManSpeed = (gameSpeed: number) => {
+  switch (gameSpeed) {
+    case 0.5:
+      return 1;
+    case 1:
+      return 2;
+    case 2:
+      return 4;
+    default:
+      return gameSpeed;
+  }
 };
 
 const updateDeadPacMan = (pacMan: PacMan) => {

@@ -9,14 +9,20 @@ export const StartSound = observer(() => {
 
   useEffect(() => {
     if (game.gameStarted) {
-      startSound.play();
-      startSound.volume = 0.5;
+      startSound
+        .play()
+        .then(() => {
+          startSound.volume = 0.5;
+        })
+        .catch(error => {
+          console.error('Failed to play start sound', error);
+        });
     }
     return () => {
       startSound.pause();
       startSound.src = ''; // Release the audio resource
     };
-  }, [game.gameStarted]);
+  }, [game.gameStarted, startSound]);
 
   useEffect(() => {
     if (game.gamePaused && startSound) {
@@ -26,10 +32,10 @@ export const StartSound = observer(() => {
   }, [game.gamePaused, startSound]);
 
   useEffect(() => {
-    if (game.gameStarted) {
+    if (startSound) {
       startSound.muted = game.isMuted;
     }
-  }, [game.isMuted, game.gameStarted]);
+  }, [game.isMuted, startSound]);
 
-  return <div></div>;
+  return null;
 });
